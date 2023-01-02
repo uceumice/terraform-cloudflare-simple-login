@@ -7,7 +7,7 @@ output "spf_record_id" {
 }
 
 output "dkim_record_id" {
-  value = cloudflare_record.dkim.id
+  value = [for record in cloudflare_record.dkim : record.id]
 }
 
 output "dmarc_record_id" {
